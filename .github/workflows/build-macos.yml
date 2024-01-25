@@ -6,6 +6,7 @@ on:
       - main  # or your default branch
 
 jobs:
+# MacOs
   build-macos-app:
     name: "Build MacOs App"
     runs-on: macos-latest
@@ -38,17 +39,47 @@ jobs:
       with:
         name: macos-app
         path: dist/my-app.tar.gz
-  
-  create-release:
-    name: "Create Release"
-    needs: build-macos-app 
-    runs-on: macos-latest
+
+    
+# Windows
+  build-windows-app:
+    name: "Build Windows App"
+    runs-on: windows-latest
     steps:
-        - name: Checkout 
-          uses: actions/checkout@v4
-        - name: Download MacOs App
-          uses: actions/download-artifact@v4
-        #   with:
-        #     name: macos-app
-        - name: List files
-          run: ls -R
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'  # Specify the Python version
+
+    - name: Install Dependencies
+      run: |
+        pip install -r requirements.txt
+        pip install pyinstaller
+
+    - name: Build Executable with PyInstaller
+      run: |
+        pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
+
+    - name: List files in dist directory
+      run: ls dist
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-app
+        path: dist/my-app.tar.gz
+  
+#   create-release:
+#     name: "Create Release"
+#     needs: build-macos-app 
+#     runs-on: macos-latest
+#     steps:
+#         - name: Checkout 
+#           uses: actions/checkout@v4
+#         - name: Download MacOs App
+#           uses: actions/download-artifact@v4
+#           with:
+#             name: macos-app
+#         - name: List files
+#           run: ls -R
