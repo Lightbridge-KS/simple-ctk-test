@@ -37,11 +37,11 @@ jobs:
   create-release:
     name: "Create Release"
     needs: build-macos-app 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
         - name: Download MacOs App
           uses: actions/download-artifact@v4
-          with:
-            name: macos-app
+        #   with:
+        #     name: macos-app
         - name: List files
           run: ls 
