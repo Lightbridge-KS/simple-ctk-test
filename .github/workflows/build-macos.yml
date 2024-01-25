@@ -23,15 +23,19 @@ jobs:
     - name: Build Executable with PyInstaller
       run: |
         pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
+    
+    - name: List files in dist directory
+      run: ls dist
+      
 
     - name: Create Package
       run: |
         mkdir output
-        cp dist/app output/app
+        cp dist/my-app output/my-app
         hdiutil create -volname "my-app" -srcfolder output -ov -format UDZO my-app.pkg
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: macos-app
         path: my-app.pkg

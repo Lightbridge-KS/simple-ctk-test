@@ -11,6 +11,6 @@ pyinstaller --noconfirm --onefile -n "app_macos" --windowed --add-data "./.venv/
 ```
 
 ```shell
-pyinstaller --noconfirm --onefile -n "app" --windowed app.py
+pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
 ```
 
