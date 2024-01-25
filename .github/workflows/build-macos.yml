@@ -28,14 +28,13 @@ jobs:
       run: ls dist
       
 
-    - name: Create Package
-      run: |
-        mkdir output
-        cp dist/my-app output/my-app
-        hdiutil create -volname "my-app" -srcfolder output -ov -format UDZO my-app.pkg
+    # - name: Create Package
+    #   run: |
+    #     mkdir output
+    #     cp dist/my-app output/my-app
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: macos-app
-        path: my-app.app
+        path: dist/my-app.app
