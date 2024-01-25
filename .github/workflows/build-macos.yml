@@ -25,6 +25,11 @@ jobs:
       run: |
         pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
     
+    - name: Create Compressed Archive
+      run: |
+        cd dist
+        tar -czf my-app.tar.gz my-app.app
+
     - name: List files in dist directory
       run: ls dist
       
@@ -32,7 +37,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: macos-app
-        path: dist/my-app.app
+        path: dist/my-app.tar.gz
   
   create-release:
     name: "Create Release"

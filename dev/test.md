@@ -14,3 +14,8 @@ pyinstaller --noconfirm --onefile -n "app_macos" --windowed --add-data "./.venv/
 pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
 ```
 
+To convert `.app` to `.tar.gz`
+
+```shell
+tar -czf my-app.tar.gz my-app.app
+```
