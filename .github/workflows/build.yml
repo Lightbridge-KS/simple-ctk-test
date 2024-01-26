@@ -59,6 +59,7 @@ jobs:
           pip install pipenv
           pipenv install pyinstaller
           pipenv install pillow
+          pipenv install pywin32-ctypes
           pipenv install --dev --deploy --ignore-pipfile
     # - name: Install Dependencies
     #   run: |
