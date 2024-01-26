@@ -12,7 +12,7 @@ print(os.getcwd()) # Project root
 
 def get_pkg_path(pkg, system):
     # Step 2: Provide Path to `site-packages`
-    sp = site.getsitepackages()[0]
+    sp = site.getsitepackages()[-1]
     if system == "mac":
         return f"{sp}/{pkg}:{pkg}/"
     if system == "win":
