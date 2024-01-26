@@ -14,9 +14,9 @@ darkdetect = "==0.8.0"
 packaging = "==23.2"
 pillow = "*"
 pyinstaller = "*"
+peddesign = {version = "*", index = "testpypi"}
 
 [dev-packages]
-peddesign = {version = "*", index = "testpypi"}
 
 [requires]
 python_version = "3.11"
