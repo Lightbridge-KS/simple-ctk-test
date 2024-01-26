@@ -19,9 +19,15 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
-        pip install pyinstaller
-        pip install pillow
+          pip install pipenv
+          pip install pyinstaller
+          pipenv install --deploy --ignore-pipfile
+
+    # - name: Install Dependencies
+    #   run: |
+    #     pip install -r requirements.txt
+    #     pip install pyinstaller
+    #     pip install pillow
 
     - name: Build Executable with PyInstaller
       run: |

@@ -1,0 +1,15 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+customtkinter = "==5.2.2"
+darkdetect = "==0.8.0"
+packaging = "==23.2"
+pillow = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
