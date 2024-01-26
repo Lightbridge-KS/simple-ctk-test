@@ -10,8 +10,10 @@ pyinstaller --noconfirm --onefile -n "app_macos" --windowed --add-data "/Users/k
 pyinstaller --noconfirm --onefile -n "app_macos" --windowed --add-data "./.venv/lib/python3.11/site-packages/customtkinter:customtkinter" app.py
 ```
 
+Work: 
+
 ```shell
-pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
+pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
 ```
 
 To convert `.app` to `.tar.gz`

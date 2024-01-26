@@ -24,7 +24,7 @@ jobs:
 
     - name: Build Executable with PyInstaller
       run: |
-        pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
+        pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
     
     - name: Create Compressed Archive
       run: |
@@ -59,7 +59,7 @@ jobs:
 
     - name: Build Executable with PyInstaller
       run: |
-        pyinstaller --noconfirm --onefile -n "my-app" --windowed app.py
+        pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
 
     - name: List files in dist directory
       run: ls dist
