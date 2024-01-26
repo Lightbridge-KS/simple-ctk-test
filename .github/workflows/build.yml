@@ -21,13 +21,8 @@ jobs:
       run: |
           pip install pipenv
           pipenv install pyinstaller
+          pipenv install pillow
           pipenv install --dev --deploy --ignore-pipfile
-
-    # - name: Install Dependencies
-    #   run: |
-    #     pip install -r requirements.txt
-    #     pip install pyinstaller
-    #     pip install pillow
 
     - name: Build Executable with PyInstaller
       run: |
@@ -61,12 +56,18 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        pip install -r requirements.txt
-        pip install pyinstaller
+          pip install pipenv
+          pipenv install pyinstaller
+          pipenv install pillow
+          pipenv install --dev --deploy --ignore-pipfile
+    # - name: Install Dependencies
+    #   run: |
+    #     pip install -r requirements.txt
+    #     pip install pyinstaller
 
     - name: Build Executable with PyInstaller
       run: |
-        pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
+        pipenv run pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
 
     - name: List files in dist directory
       run: ls dist
