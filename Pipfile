@@ -3,6 +3,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[[source]]
+url = "https://test.pypi.org/simple/"
+verify_ssl = true
+name = "testpypi"
+
 [packages]
 customtkinter = "==5.2.2"
 darkdetect = "==0.8.0"
@@ -11,6 +16,7 @@ pillow = "*"
 pyinstaller = "*"
 
 [dev-packages]
+peddesign = {version = "*", index = "testpypi"}
 
 [requires]
 python_version = "3.11"
