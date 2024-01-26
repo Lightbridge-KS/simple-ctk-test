@@ -1,5 +1,5 @@
 import customtkinter
-# import peddesign
+import peddesign
 
 class MyOptionMenu(customtkinter.CTkFrame):
     def __init__(self, master, values=["option 1", "option 2"], label_text="Options:"):
