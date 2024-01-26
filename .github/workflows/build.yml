@@ -61,10 +61,6 @@ jobs:
           pipenv install pillow
           pipenv install pywin32-ctypes
           pipenv install --dev --deploy --ignore-pipfile
-    # - name: Install Dependencies
-    #   run: |
-    #     pip install -r requirements.txt
-    #     pip install pyinstaller
 
     - name: Build Executable with PyInstaller
       run: |
