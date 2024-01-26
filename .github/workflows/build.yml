@@ -20,11 +20,8 @@ jobs:
     - name: Install Dependencies
       run: |
           pip install pipenv
-          pipenv install --deploy --ignore-pipfile
-          
-    - name: Install Pyinstaller
-      run: |
-          pip install pyinstaller
+          pipenv install pyinstaller
+          pipenv install --dev --deploy --ignore-pipfile
 
     # - name: Install Dependencies
     #   run: |
@@ -34,7 +31,7 @@ jobs:
 
     - name: Build Executable with PyInstaller
       run: |
-        pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
+        pipenv run pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
     
     - name: Create Compressed Archive
       run: |
