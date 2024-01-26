@@ -20,8 +20,11 @@ jobs:
     - name: Install Dependencies
       run: |
           pip install pipenv
-          pip install pyinstaller
           pipenv install --deploy --ignore-pipfile
+          
+    - name: Install Pyinstaller
+      run: |
+          pip install pyinstaller
 
     # - name: Install Dependencies
     #   run: |
