@@ -24,10 +24,10 @@ jobs:
           pipenv install pillow
           pipenv install --dev --deploy --ignore-pipfile
 
+    # pipenv run pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
     - name: Build Executable with PyInstaller
       run: |
-        pipenv run pyinstaller --noconfirm --onefile -n "my-app" --windowed --icon="assets/icon.ico" app.py
-    
+        pipenv run pyinstaller --noconfirm --onefile -n "my-app" --windowed --add-data "./.venv/lib/python3.11/site-packages/customtkinter:customtkinter" --icon="assets/icon.ico" app.py
     - name: Create Compressed Archive
       run: |
         cd dist
